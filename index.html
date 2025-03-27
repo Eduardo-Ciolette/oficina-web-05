@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cálculos da Esfera</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Exemplo</title>
+    <script>
+        function processar() {
+            var i = 0, vetor = [];
+
+            do {
+                var objeto = {};
+                objeto.nome = prompt("Informe o nome:");
+                objeto.curso = prompt("Informe o curso:"); 
+
+                vetor[i++] = objeto;
+            } while (confirm("Deseja informar outro nome?"));
+
+            resp.innerHTML = "Nomes informados: <br />"
+            vetor = vetor.map((obj, i) => `${i}) ${obj.nome}: ${obj.curso} <br/>`);
+            resp.innerHTML += vetor.join("");
+        }
+    </script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Cálculos da Esfera</h1>
-        <form id="form">
-            <label for="raio">Raio (R):</label>
-            <input type="number" id="raio" required placeholder="Digite o raio da esfera">
-            <button type="submit">Calcular</button>
-        </form>
-
-        <div id="resultados" style="display: none;">
-            <h2>Resultados:</h2>
-            <p><strong>Comprimento da Esfera (C):</strong> <span id="comprimento"></span></p>
-            <p><strong>Área da Esfera (A):</strong> <span id="area"></span></p>
-            <p><strong>Volume da Esfera (V):</strong> <span id="volume"></span></p>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <button onclick="processar()">Ok</button>
+    <div id="resp"></div>
 </body>
+
 </html>
